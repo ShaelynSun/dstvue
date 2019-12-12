@@ -1,18 +1,17 @@
 <template>
-  <div class="hero">
+  <div id="app1" class="hero">
     <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{messagetitle}}</h3>
-    <div id="app1">
       <v-client-table :columns="columns" :data="stories" :options="options">
         <a slot="upvote" slot-scope="props" class="fa fa-thumbs-up fa-2x" @click="upvote(props.row._id)"></a>
         <a slot="downvote" slot-scope="props" class="fa fa-thumbs-down fa-2x" @click="downvote(props.row._id)"></a>
         <a slot="remove" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deleteStory(props.row._id)"></a>
+        <a slot="edit" slot-scope="props" class="fa fa-edit fa-2x" @click="editStory(props.row._id)"></a>
       </v-client-table>
-    </div>
   </div>
 </template>
 
 <script>
-import storiesservice from '@/services/storiesservice'
+import storyservice from '@/services/storyservice'
 import Vue from 'vue'
 import VueTables from 'vue-tables-2'
 import VueSweetalert2 from 'vue-sweetalert2'
@@ -28,8 +27,10 @@ export default {
       errors: [],
       props: ['_id'],
       messagetitle: 'Stories',
-      columns: ['title', 'username', 'type', 'class', 'content', 'written_times', 'upvotes', 'upvote', 'downvotes', 'downvote', 'remove'],
+      columns: ['title', 'username', 'type', 'class', 'content', 'written_times', 'upvotes', 'upvote', 'downvote', 'edit', 'remove'],
       options: {
+        perPage: 10,
+        filterable: ['title', 'type', 'class', 'upvotes'],
         sortable: ['upvotes'],
         headings: {
           title: 'Title',
@@ -49,7 +50,7 @@ export default {
   },
   methods: {
     loadStories: function () {
-      storiesservice.fetchStories()
+      storyservice.fetchStories()
         .then(response => {
           // JSON responses are automatically parsed.
           this.stories = response.data
@@ -61,7 +62,7 @@ export default {
         })
     },
     upvote: function (id) {
-      storiesservice.upvoteStories(id)
+      storyservice.upvoteStories(id)
         .then(response => {
           console.log(response)
         })
@@ -71,7 +72,7 @@ export default {
         })
     },
     downvote: function (id) {
-      storiesservice.downvoteStories(id)
+      storyservice.downvoteStories(id)
         .then(response => {
           console.log(response)
         })
@@ -79,6 +80,10 @@ export default {
           this.errors.push(error)
           console.log(error)
         })
+    },
+    editStory: function (id) {
+      this.$router.params = id
+      this.$router.push('edit')
     },
     deleteStory: function (id) {
       this.$swal({
@@ -93,7 +98,7 @@ export default {
       }).then((result) => {
         console.log('SWAL Result : ' + result)
         if (result) {
-          storiesservice.deleteStory(id)
+          storyservice.deleteStory(id)
             .then(response => {
               // JSON responses are automatically parsed.
               this.message = response.data

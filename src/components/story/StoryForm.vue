@@ -1,7 +1,4 @@
 <template>
-  <div class="hero">
-    <h3 class="vue-title"><i class="fa fa-book" style="padding: 3px"></i>{{messagetitle}}</h3>
-    <div id="app2">
       <form @submit.prevent="submit">
         <div class="form-group">
           <label class="form-label">Select Story Type</label>
@@ -42,12 +39,9 @@
         <p class="typo__p" v-if="submitStatus === 'ERROR'">Please Fill in the Form Correctly.</p>
         <p class="typo__p" v-if="submitStatus === 'PENDING'">Adding story</p>
       </form>
-    </div>
-  </div>
 </template>
 
 <script>
-import storiesservice from '@/services/storiesservice'
 import { required, minLength } from 'vuelidate/lib/validators'
 import Vue from 'vue'
 import {Vuelidate} from 'vuelidate'
@@ -63,19 +57,20 @@ Vue.use(VueForm, {
 
 Vue.use(Vuelidate)
 Vue.use(VueSweetalert)
+
 export default {
-  name: 'AddStories',
+  name: 'StoryForm',
+  props: ['storyBtnTitle', 'story'],
   data () {
     return {
       messagetitle: 'Add Stories',
-      content: '',
-      title: '',
-      type: 'Type',
-      class: 'Class',
-      written_times: 0,
+      content: this.story.content,
+      title: this.story.title,
+      type: this.story.type,
+      class: this.story.class,
+      written_times: this.story.written_times,
       upvotes: 0,
       downvotes: 0,
-      story: {},
       submitStatus: null
     }
   },
@@ -90,17 +85,6 @@ export default {
     }
   },
   methods: {
-    addStories: function (story) {
-      storiesservice.addStories(story)
-        .then(response => {
-          // JSON responses are automatically parsed.
-          console.log(response)
-        })
-        .catch(error => {
-          this.errors.push(error)
-          console.log(error)
-        })
-    },
     submit () {
       console.log('submit!')
       this.$v.$touch()
@@ -121,8 +105,8 @@ export default {
             downvotes: this.downvotes
           }
           this.story = story
-          console.log(this.story)
-          this.addStories(this.story)
+          console.log('Submitting in StoryForm : ' + JSON.stringify(this.story, null, 5))
+          this.$emit('story-is-created-updated', this.story)
         }, 500)
       }
     }
@@ -131,10 +115,6 @@ export default {
 </script>
 
 <style scoped>
-  #app2 {
-    width: 55%;
-    margin: 0 auto;
-  }
   .vue-title {
     margin-top: 30px;
     text-align: center;
@@ -146,7 +126,7 @@ export default {
     color: red;
     margin-left: 0.25rem;
   }
-  .donate-form .form-control-label.text-left{
+  .story-form .form-control-label.text-left{
     text-align: left;
   }
 
@@ -157,7 +137,6 @@ export default {
     font-size: x-large;
   }
   .typo__p {
-    margin-left: 20%;
     width: 540px;
     font-size: x-large;
   }
@@ -169,15 +148,14 @@ export default {
     margin-top: 20px;
   }
 .form-group {
-  margin-left: 20%;
-  width: 500px;
+  width: 550px;
 }
   input {
     border: 1px solid silver;
     border-radius: 4px;
     background: white;
     padding: 5px 10px;
-    width: 500px;
+    width: 550px;
   }
 
   .dirty {
@@ -190,16 +168,14 @@ export default {
   }
 
   .error {
-    margin-left: 20%;
-    width: 500px;
+    width: 550px;
     border-color: red;
     background: #157ffb;
     color: whitesmoke;
   }
 
   .error:focus {
-    margin-left: 20%;
-    width: 500px;
+    width: 550px;
     outline-color: #ffa519;
   }
 </style>
