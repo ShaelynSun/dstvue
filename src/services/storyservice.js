@@ -4,6 +4,9 @@ export default {
   fetchStories () {
     return Api().get('/stories')
   },
+  fetchMyStories (username) {
+    return Api().get(`/mystories/${username}`)
+  },
   addStories (story) {
     return Api().post('/stories', story)
   },

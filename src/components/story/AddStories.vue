@@ -20,7 +20,7 @@ export default {
     return {
       story: {
         title: '',
-        username: '',
+        username: this.$store.state.username,
         type: 'Myth',
         class: 'Chinese',
         content: ''

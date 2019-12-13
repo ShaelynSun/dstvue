@@ -12,12 +12,4 @@ export default {
   deleteComment (story, id) {
     return Api().delete(`/comments/${story}/${id}`)
   }
-  // fetchStory (id) {
-  //   return Api().get(`/stories/${id}`)
-  // },
-  // editStory (id, story) {
-  //   console.log('REQUESTING ' + story._id + ' ' +
-  //     JSON.stringify(story, null, 5))
-  //   return Api().post(`/edit/${id}`, story)
-  // }
 }

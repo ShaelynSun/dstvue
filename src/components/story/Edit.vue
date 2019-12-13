@@ -65,5 +65,10 @@ export default {
 </script>
 
 <style scoped>
-
+  .vue-title {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30pt;
+    margin-bottom: 10px;
+  }
 </style>

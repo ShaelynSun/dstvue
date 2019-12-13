@@ -8,7 +8,7 @@
         <p>
         <input class="form__input" name="password" placeholder="Password" v-model="password"/>
         <div style="margin-top: 10px">
-          <a href ="/#/register">Go to register a new account</a>
+          <a href ="/register">Go to register a new account</a>
         </div>
         <button class="btn btn-primary btn1" type="submit">Login</button>
         <button v-google-signin-button="clientId" class="google-signin-button"> Sign up by Google</button>
@@ -69,6 +69,7 @@ export default {
       userservice.userLogin(user)
         .then(response => {
           console.log(response)
+          this.$store.dispatch('setUsername', response.data.data)
           this.$router.push('/personal')
         })
         .catch(error => {

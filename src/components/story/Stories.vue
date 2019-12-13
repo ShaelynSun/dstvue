@@ -27,12 +27,13 @@ export default {
       errors: [],
       props: ['_id'],
       messagetitle: 'Stories',
-      columns: ['title', 'username', 'type', 'class', 'content', 'written_times', 'upvotes', 'upvote', 'downvote', 'edit', 'remove'],
+      columns: ['_id', 'title', 'username', 'type', 'class', 'content', 'written_times', 'upvotes', 'upvote', 'downvote', 'edit', 'remove'],
       options: {
         perPage: 10,
         filterable: ['title', 'type', 'class', 'upvotes'],
         sortable: ['upvotes'],
         headings: {
+          _id: 'ID',
           title: 'Title',
           username: 'Username',
           type: 'Type',
