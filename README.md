@@ -1,30 +1,28 @@
-# dstvue
+# Assignment 2 - Agile Software Practice.
 
-> A Vue.js project
+Name: Xinyue Sun (Shaelyn)
 
-## Build Setup
+## Client UI.
 
-``` bash
-# install dependencies
-npm install
+![addComments][src/public/images/addComments.png]
+>Allows the user add a new comments
 
-# serve with hot reload at localhost:8080
-npm run dev
+![searchComment][src/public/images/dstVueTest-Stories -- Comments page.png]
+>Allows the user search comments by a story ID
 
-# build for production with minification
-npm run build
+![Home page][src/public/images/dstVueTest-Home -- Home page.png]
+> Test Home page content
 
-# build for production and view the bundle analyzer report
-npm run build --report
+![Top_bar][src/public/images/dstVueTest-Home -- Top-bar.png]
+>Test top Bar content and url
 
-# run unit tests
-npm run unit
+![addStory][src/public/images/dstVueTest-Stories-Add -- Add Stories page.png]
+>Add a new story
 
-# run e2e tests
-npm run e2e
+## Web API CI.
+https://shaelynsun.gitlab.io/cicd-dst
 
-# run all tests
-npm test
-```
+## GitLab CI.
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+(Optional) State any non-standard features (not covered in the lectures or labs) of the GitLab CI platform that you utilized.
+
