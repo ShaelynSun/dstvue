@@ -1,7 +1,7 @@
 <template>
   <div id="app1" class="hero">
   <div><h3 class="vue-title"><i class="fa fa-flag" style="padding: 3px"></i>{{messagetitle}}</h3>
-    <form @submit.prevent="submit">
+    <form @submit.prevent="submit" v-show="!$store.state.username">
       <div class="form-group">
         <input class="form__input" name="username" placeholder="Username" v-model="username"/>
         <br>
@@ -14,6 +14,7 @@
         <button v-google-signin-button="clientId" class="google-signin-button"> Sign up by Google</button>
       </div>
     </form>
+    <button v-show="$store.state.username" class="btn btn-primary btn1" @click="Personal_page">Check my page</button>
   </div>
   </div>
 </template>
@@ -70,13 +71,14 @@ export default {
         .then(response => {
           console.log(response)
           this.$store.dispatch('setUsername', response.data.data)
-          //    When executing Cypress tests, this statement is commented out
-          //    this.$router.push('/personal')
         })
         .catch(error => {
           this.errors.push(error)
           console.log(error)
         })
+    },
+    Personal_page: function () {
+      this.$router.push('/personal')
     }
   }
 }

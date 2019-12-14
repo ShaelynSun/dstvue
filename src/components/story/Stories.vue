@@ -4,8 +4,8 @@
       <v-client-table :columns="columns" :data="stories" :options="options">
         <a slot="upvote" slot-scope="props" class="fa fa-thumbs-up fa-2x" @click="upvote(props.row._id)"></a>
         <a slot="downvote" slot-scope="props" class="fa fa-thumbs-down fa-2x" @click="downvote(props.row._id)"></a>
-        <a slot="remove" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deleteStory(props.row._id)"></a>
-        <a slot="edit" slot-scope="props" class="fa fa-edit fa-2x" @click="editStory(props.row._id)"></a>
+        <a v-show="$store.state.username" slot="edit" slot-scope="props" class="fa fa-edit fa-2x" @click="editStory(props.row._id)"></a>
+        <a v-show="$store.state.username" slot="remove" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deleteStory(props.row._id)"></a>
       </v-client-table>
   </div>
 </template>
@@ -28,9 +28,10 @@ export default {
       props: ['_id'],
       messagetitle: 'Stories',
       columns: ['_id', 'title', 'username', 'type', 'class', 'content', 'written_times', 'upvotes', 'upvote', 'downvote', 'edit', 'remove'],
+      //     columns: ['_id', 'title', 'username', 'type', 'class', 'content', 'written_times', 'upvotes', 'upvote', 'downvotes', 'downvote', 'remove'],
       options: {
         perPage: 10,
-        filterable: ['title', 'type', 'class', 'upvotes'],
+        filterable: ['title', 'type', 'class', 'upvotes', 'downvotes'],
         sortable: ['upvotes'],
         headings: {
           _id: 'ID',

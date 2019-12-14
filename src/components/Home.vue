@@ -1,7 +1,10 @@
 <template>
   <div class="hero">
     <h2 class="vue-title">Dynamic Story Telling</h2>
-
+    <div>
+      <p>These days are before the <b>Spring Festival</b>!!!</p>
+      <flip-countdown deadline="2020-01-25 00:00:00"></flip-countdown>
+    </div>
     <table align="center">
       <tr>
         <td>
@@ -17,6 +20,14 @@
     <p class="lead">Homepage of <b>DST</b> Web app</p>
   </div>
 </template>
+<script>
+import FlipCountdown from 'vue2-flip-countdown'
+export default {
+  components: {
+    FlipCountdown
+  }
+}
+</script>
 
 <style>
   .hero {

@@ -1,6 +1,6 @@
 <template>
   <div id="app2" class="hero">
-    <h3 class="vue-title"><i class="fa fa-coffe" style="padding: 3px"></i>{{messagetitle}}</h3>
+    <h3 class="vue-title"><i class="fa fa-coffe" style="padding: 3px"/>{{messagetitle}}</h3>
       <form @submit.prevent="submit">
         <div class="form-group">
           <input class="form__input" name="story" placeholder="enter your story's ID" v-model="story"/>
@@ -8,7 +8,8 @@
         </div>
       </form>
       <v-client-table :name="comments" :columns="columns" :data="comments" :options="options">
-        <a slot="remove" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deleteComment(props.row.story,props.row._id)"></a>
+        <a slot="remove" slot-scope="props" class="fa fa-trash-o fa-2x"
+           @click="deleteComment(props.row.story,props.row._id)"/>
       </v-client-table>
   </div>
 </template>
@@ -18,7 +19,6 @@ import commentservice from '@/services/commentservice'
 import Vue from 'vue'
 import VueTables from 'vue-tables-2'
 import VueSweetalert2 from 'vue-sweetalert2'
-
 Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})
 Vue.use(VueSweetalert2)
 export default {
