@@ -7,7 +7,7 @@
           <button class="btn btn-primary btn1" type="submit">Search</button>
         </div>
       </form>
-      <v-client-table :columns="columns" :data="comments" :options="options">
+      <v-client-table :name="comments" :columns="columns" :data="comments" :options="options">
         <a slot="remove" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deleteComment(props.row.story,props.row._id)"></a>
       </v-client-table>
   </div>
@@ -28,7 +28,7 @@ export default {
       comments: [],
       messagetitle: 'Search for comments',
       props: ['_id'],
-      username: '',
+      username: this.$store.state.username,
       com_content: '',
       story: '',
       com_upvotes: 0,

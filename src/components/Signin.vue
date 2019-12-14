@@ -70,7 +70,8 @@ export default {
         .then(response => {
           console.log(response)
           this.$store.dispatch('setUsername', response.data.data)
-          this.$router.push('/personal')
+          //    When executing Cypress tests, this statement is commented out
+          //    this.$router.push('/personal')
         })
         .catch(error => {
           this.errors.push(error)

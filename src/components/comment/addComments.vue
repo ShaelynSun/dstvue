@@ -74,6 +74,7 @@ export default {
           this.submitStatus = 'OK'
           var comment = {
             story: this.story,
+            username: this.$store.state.username,
             com_content: this.com_content
           }
           this.comment = comment

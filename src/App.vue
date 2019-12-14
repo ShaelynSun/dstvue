@@ -14,10 +14,9 @@
           <b-nav-item to="/map"><i class="fa fa-globe" style="padding: 5px"> Map </i></b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item><i class="fa username" style="padding: 5px" v-text="username" /></b-nav-item>
           <b-nav-item to="/register" v-show="!$store.state.username"><i class="fa fa-flag" style="padding: 5px"> Register </i></b-nav-item>
           <b-nav-item to="/personal" v-show="$store.state.username"><i class="fa fa-flag" style="padding: 5px"> Personal </i></b-nav-item>
-          <b-nav-item to="/signin"><i class="fa fa-sign-in" style="padding: 5px"> Sign in </i></b-nav-item>
+          <b-nav-item to="/signin" v-show="!$store.state.username"><i class="fa fa-sign-in" style="padding: 5px"> Sign in </i></b-nav-item>
           <b-nav-item @click="logout" v-show="$store.state.username"><i class="fa fa-sign-out" style="padding: 5px"> Logout </i></b-nav-item>
           <i class="fa fa-pied-piper-alt fa-1x" style="padding: 5px; color: white;"/>
         </b-navbar-nav>

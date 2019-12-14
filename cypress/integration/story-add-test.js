@@ -1,0 +1,26 @@
+describe('dstVueTest-Stories-Add', function () {
+  before(() => {
+    cy.visit('http://localhost:8080/#/signin')
+    cy.get('#app1 > div > form > div > input')
+      .type('sxy')
+    cy.get('#app1 > div > form > div > p > input')
+      .type('123')
+    cy.get('#app1 > div > form > div > button.btn.btn-primary.btn1').click()
+    cy.get('#nav_collapse > ul:nth-child(1) > li:nth-child(3) > a').click()
+  })
+  // after( () =>{
+  //   cy.get('#nav_collapse > ul.navbar-nav.ml-auto > li:nth-child(4) > a > i').click()
+  // })
+  it('Add Stories page', function () {
+    cy.get('#app1 > h3').should('contain', 'Add Story')
+    cy.get('#nav_collapse > ul:nth-child(1) > li:nth-child(3) > a').click()
+      .get('#type').select('Song')
+      .get('#classes').select('English')
+    cy.get('#app1 > div > div > div > form > div:nth-child(3) > input').type('abcdefg')
+    cy.get('#app1 > div > div > div > form > div.error').should('be.visible')
+    cy.get('#app1 > div > div > div > form > div:nth-child(4) > input').type('hbibiubiuibui')
+    cy.get('#app1 > div > div > div > form > p > button').click()
+    cy.get('#app1 > div > div > div > form > p.typo__p').should('contain', 'Get your story!')
+    cy.screenshot()
+  })
+})

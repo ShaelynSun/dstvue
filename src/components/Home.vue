@@ -1,23 +1,20 @@
 <template>
   <div class="hero">
-    <h1 class="vue-title">Homer for President !!</h1>
+    <h2 class="vue-title">Dynamic Story Telling</h2>
 
     <table align="center">
       <tr>
         <td>
           <p class="lead"><b><i>Do you have anything to share ?</i></b>
           <p>Not only a story about songs, myths, or your own stories.</p>
-          <p>Just click <a href ="/stories">here</a> to go to</p>
-          <p>the Story page and make a story</p>
+          <p>Just click <a href ="/stories">here</a> to go to the Story page</p>
         </td>
         <td>
           <img src="../assets/homer.gif" alt="description here" />
         </td>
       </tr>
     </table>
-
-    <p></p>
-    <p class="lead">This is the homepage of your <b>MEVN</b> Web app</p>
+    <p class="lead">Homepage of <b>DST</b> Web app</p>
   </div>
 </template>
 
@@ -38,7 +35,7 @@
     margin: 0 auto;
   }
   .vue-title {
-    font-size: 70pt;
+    font-size: 50pt;
     margin-bottom: 10px;
   }
 </style>
