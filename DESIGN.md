@@ -78,3 +78,36 @@ ClientID: '827758022600-39rgbiksk05me4fql6sp7v34ee2ljlht.apps.googleusercontent.
 Map:
 API key: 'AIzaSyD5g3ZVaqAurQ6Jq-y8Mi5e8ax2hvZEHes',
 
+URL
+Client:
+GitHub:	https://github.com/ShaelynSun/dstvue.git
+
+Gitlab:	https://gitlab.com/ShaelynSun/dstvue-cicd.git
+
+Heroku:	https://dstvue-prod-api.herokuapp.com/
+
+Surge	http://dstvue-prod.surge.sh/
+
+
+Web:
+Gitlab:	https://gitlab.com/ShaelynSun/cicd-dst.git
+
+Heroku1:	http://dst-staging-api.herokuapp.com
+
+Heroku2:	http://dst-prod-api.herokuapp.com
+
+The pictures of UML diagrams and data model is in public file, or check in README file.
+
+Yotube link
+Assignment1: https://youtu.be/A5uRIsin0Zc
+
+Assignment2: https://youtu.be/Qv-1EhkNcw0
+
+Reference
+1. Node.js入门教程, https://www.bookstack.cn/books/node-abc
+2. MongoDB's multi-table association query, https://blog.csdn.net/WaterSprite_ct/article/details/78500997
+3. MongoDB tutorial>, 'yingchiajun', https://www.w3cschool.cn/mongodb/mongodb-databases-documents-collections.html
+4. 一步步教你怎么把vue项目部署到Node服务器上, https://www.jianshu.com/p/ce8766f3e68d
+5. https://tutors-design.netlify.com/course/wit-wad-2-2019.netlify.com
+6. 010 - Continuous IntegrationFile, https://moodle.wit.ie/pluginfile.php/4851546/mod_resource/content/3/index.html
+7. 011 - Continuous Delivery/DeploymentFile, https://moodle.wit.ie/pluginfile.php/5163756/mod_resource/content/2/index.html
