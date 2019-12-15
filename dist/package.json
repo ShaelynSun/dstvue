@@ -1,0 +1,8 @@
+{
+  "name": "dst",
+  "author": "Shaelyn sun",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm install express"
+  }
+}
