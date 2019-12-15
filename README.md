@@ -39,9 +39,14 @@ https://gitlab.com/ShaelynSun/dstvue-cicd
 
 ## Client Deploy
 http://dstvue-prod.surge.sh/
+https://dstvue-prod-api.herokuapp.com/
 
 ## Data Model
 ![data_model](public/images/data_model.jpg)
 
 ## UML Diagrams
+>Use case diagram
 ![Use case](public/images/Use case.png)
+
+>Activity diagram
+![activity](public/images/Activity.png)
