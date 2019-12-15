@@ -36,7 +36,7 @@ export default {
       columns: ['story', 'username', 'com_content', 'remove'],
       options: {
         perPage: 10,
-        filterable: ['story', 'username', 'com_content'],
+        filterable: ['username', 'com_content'],
         sortable: ['upvotes'],
         headings: {
           story: 'StoryID',

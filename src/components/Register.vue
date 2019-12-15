@@ -7,9 +7,9 @@
           <input class="form__input" name="username" placeholder="Username" v-model="username"/>
           <br>
           <p>
-            <input class="form__input" name="password" placeholder="Password" v-model="password"/>
+            <input class="form__input" type="password" name="password" placeholder="Password" v-model="password"/>
           <div style="margin-top: 10px">
-            <a href ="/signin">Go to log in</a>
+            <a href ="/#/signin">Go to log in</a>
           </div>
           <button class="btn btn-primary btn1" type="submit">Register</button>
           <button class="btn2" @click="gotoSign">{{message}} To Login</button>

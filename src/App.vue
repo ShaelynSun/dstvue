@@ -8,9 +8,9 @@
         <b-navbar-nav>
           <b-nav-item to="/"><i class="fa fa-home" style="padding: 5px"> Home</i></b-nav-item>
           <b-nav-item to="/stories"><i class="fa fa-list" style="padding: 5px"> Stories</i></b-nav-item>
-          <b-nav-item to="/story"><i class="fa fa-book" style="padding: 5px"> Add Stories</i></b-nav-item>
+          <b-nav-item to="/story" v-show="$store.state.username"><i class="fa fa-book" style="padding: 5px"> Add Stories</i></b-nav-item>
           <b-nav-item to="/comments"><i class="fa fa-coffee" style="padding: 5px"> Comments </i></b-nav-item>
-          <b-nav-item to="/comment"><i class="fa fa-star" style="padding: 5px"> Add Comments </i></b-nav-item>
+          <b-nav-item to="/comment" v-show="$store.state.username"><i class="fa fa-star" style="padding: 5px"> Add Comments </i></b-nav-item>
           <b-nav-item to="/map"><i class="fa fa-globe" style="padding: 5px"> Map </i></b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">

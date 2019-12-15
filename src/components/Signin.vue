@@ -6,10 +6,11 @@
         <input class="form__input" name="username" placeholder="Username" v-model="username"/>
         <br>
         <p>
-        <input class="form__input" name="password" placeholder="Password" v-model="password"/>
+        <input class="form__input" type="password" name="password" placeholder="Password" v-model="password"/>
         <div style="margin-top: 10px">
-          <a href ="/register">Go to register a new account</a>
+          <a href ="/#/register">Go to register a new account</a>
         </div>
+        <div style="margin-top: 10px">{{message}}</div>
         <button class="btn btn-primary btn1" type="submit">Login</button>
         <button v-google-signin-button="clientId" class="google-signin-button"> Sign up by Google</button>
       </div>
@@ -35,6 +36,7 @@ export default {
       user: {},
       username: '',
       password: '',
+      message: '',
       messagetitle: 'Signin',
       clientId: '827758022600-39rgbiksk05me4fql6sp7v34ee2ljlht.apps.googleusercontent.com'
     }
@@ -70,6 +72,8 @@ export default {
       userservice.userLogin(user)
         .then(response => {
           console.log(response)
+          var message = response.data.message
+          this.message = message
           this.$store.dispatch('setUsername', response.data.data)
         })
         .catch(error => {

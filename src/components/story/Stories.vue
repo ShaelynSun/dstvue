@@ -31,7 +31,7 @@ export default {
       //     columns: ['_id', 'title', 'username', 'type', 'class', 'content', 'written_times', 'upvotes', 'upvote', 'downvotes', 'downvote', 'remove'],
       options: {
         perPage: 10,
-        filterable: ['title', 'type', 'class', 'upvotes', 'downvotes'],
+        filterable: ['title', 'type', 'class', 'upvotes', 'content'],
         sortable: ['upvotes'],
         headings: {
           _id: 'ID',

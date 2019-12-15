@@ -10,7 +10,7 @@
         <td>
           <p class="lead"><b><i>Do you have anything to share ?</i></b>
           <p>Not only a story about songs, myths, or your own stories.</p>
-          <p>Just click <a href ="/stories">here</a> to go to the Story page</p>
+          <p>Just click <a href ="/#/stories">here</a> to go to the Story page</p>
         </td>
         <td>
           <img src="../assets/homer.gif" alt="description here" />
