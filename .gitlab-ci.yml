@@ -1,0 +1,35 @@
+# Node docker image on which this would be run
+image: node:latest
+
+# Pipeline:
+stages:
+  - install
+  - build
+  - deploy
+
+install_dependencies:
+  stage: install
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+# Jobs:
+build:
+  stage: build
+  script:
+    - npm install
+    - npm build
+  artifacts:
+    paths:
+      - dist/
+
+production:
+  stage: deploy
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME_PROD --api-key=$HEROKU_API_KEY

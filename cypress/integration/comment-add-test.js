@@ -21,7 +21,7 @@ describe('dstVueTest-Stories', function () {
   // eslint-disable-next-line no-undef
   it('Comments page', function () {
     cy.get('#app1 > h3').should('contain', 'Add Comments')
-    cy.get('#app1 > form > div:nth-child(1) > input').type('5df46280531ffc0ef9580b5f')
+    cy.get('#app1 > form > div:nth-child(1) > input').type('5df46280531ffc0ef9580b5e')
     cy.get('#app1 > form > div:nth-child(2) > input').type('wow')
     cy.get('#app1 > form > div.error').should('be.visible')
     cy.get('#app1 > form > div:nth-child(2) > input').type('wowwowowow')
