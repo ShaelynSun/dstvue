@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
+    "start:server": "cd ./dist && httpserver -p 8080 & wait-on http://localhost:8080",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
@@ -36,7 +37,8 @@
     "vue2-google-maps": "^0.10.7",
     "vueform": "^2.0.0",
     "vuelidate": "^0.7.4",
-    "vuex": "^3.1.2"
+    "vuex": "^3.1.2",
+    "wait-on": "^3.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
